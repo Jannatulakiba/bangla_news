@@ -9,9 +9,16 @@ interface Navs {
 
 
 const NavLinks = async () => {
-    const res = await fetch('https://news-api-v2.vercel.app/api/categories');
-    const data = await res.json();
-    const navs: Navs[] = data.data;
+    let navs: Navs[] = [];
+    try {
+        const res = await fetch('https://news-api-v2.vercel.app/api/categories');
+        if (res.ok) {
+            const data: { data?: Navs[] } = await res.json();
+            navs = Array.isArray(data.data) ? data.data : [];
+        }
+    } catch {
+        navs = [];
+    }
     const filterNavs = navs.filter((nav) => nav.scrapable);
     return (
         <div className="flex justify-center gap-4">

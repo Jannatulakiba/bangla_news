@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 
-interface News {
+export interface News {
   id: string;
   title: string;
   description: string;
@@ -11,6 +11,10 @@ interface News {
 }
 
 const MainNews = ({ news }: { news: News[] }) => {
+  if (news.length === 0) {
+    return <p className="px-4 py-8">এই মুহূর্তে খবর পাওয়া যাচ্ছে না।</p>;
+  }
+
   const [firstNews, ...otherNews] = news;
 
 
@@ -18,7 +22,7 @@ const MainNews = ({ news }: { news: News[] }) => {
         <div className="flex gap-4 ">
             <div className="card bg-base-100 w-96 shadow-sm">
   <figure>
-    <Image
+    <Image width={400} height={400} className="w-full h-48 object-cover"
       src={firstNews.imageUrl}
       alt={firstNews.imageAlt} />
   </figure>
