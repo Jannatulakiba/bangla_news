@@ -40,7 +40,7 @@ export default async function Home() {
  <div className=" col-span-2 ">
           <MainNews news={mainNews} />
 
-          <div className=" grid gap-5 mt-5">
+          <div className=" grid gap-5 mt-19">
             {otherSections.map((os) => (
               <div
                 className=""
@@ -59,7 +59,7 @@ export default async function Home() {
                 </div>  
 
  { /* news section */}
-               <div className="bg-black-200  col-span-1 p-10"> 
+               <div className="col-span-1   "> 
           <MostRead />
                </div>
       </div>

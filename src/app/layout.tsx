@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="bn" data-theme="light" className={`${notoSerifBengali.variable} h-full antialiased`}>
       <body >
         <Header />
-        {children}
+        <main className="max-w-7xl mx-auto py-8">{children}</main>
         <div>Footer</div>
       </body>
     </html>

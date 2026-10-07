@@ -1,5 +1,7 @@
+"user client";
 import Image from "next/image";
 import NavLinks from "./NavLinks";
+import UserInfo from "./UserInfo";
 
 export default function Header() {
   const date = new Date().toLocaleDateString("bn-BD", { dateStyle: "full" });
@@ -19,11 +21,9 @@ export default function Header() {
             <p className="text-xs">{date}</p>
           </div>
         </div>
-        <div className=" absolute right-4 top-4 flex items-center gap-3 text-sm">  
-          <button className="btn">সাইন ইন</button>
-          <button className="btn bg-red-700 text-white">সাইন আপ</button>
-        </div>
+     
       </div>
+      <UserInfo/>
        <NavLinks />
     </header>
 
